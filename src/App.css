@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.todo-border{
+  border: 1px solid #fff;
+  padding: 10px 50px;
+  font-size: 18px;
+  border-radius: 10px;
+  margin: 10px;
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-border img{
+  width: 13px;
+  height: 13px;
+}
+
+.todo-form{
+  display: flex;
+  width: 200px;
+}
