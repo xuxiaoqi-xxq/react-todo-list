@@ -2,19 +2,35 @@ import React from 'react'
 
 class Todo extends React.Component{
 
+    constructor(props){
+        super(props);
+        this.state = {
+            isTodoDone: false
+        }
+    }
+
     deleteTodo = () =>{
-        console.log(this.props.index);
         this.props.deleteTodo(this.props.index);
     }
 
     done = (e)=>{
-        console.log(e.target.getAttribute("data-id"));
+        let isTodoDone = !this.state.isTodoDone;
+        this.setState({
+            isTodoDone: isTodoDone
+        })
+        this.props.isTodoDone(this.state.isTodoDone, this.props.index);
     }
 
     render(){
-        return (
-            <div className="todo-border"><span data-id={this.props.index} onClick={this.done}>{this.props.text}</span><img onClick={this.deleteTodo} src='/delete.png'/></div>
-        )
+        if(this.state.isTodoDone){
+            return (
+                <div className="todo-border"><span className="todo-delete" onClick={this.done}>{this.props.todo.text}</span><img onClick={this.deleteTodo} src='/delete.png' alt="delete"/></div>
+            )
+        } else {
+            return (
+                <div className="todo-border"><span onClick={this.done}>{this.props.todo.text}</span><img onClick={this.deleteTodo} src='/delete.png' alt="delete"/></div>
+            )
+        }
     }
 
 }

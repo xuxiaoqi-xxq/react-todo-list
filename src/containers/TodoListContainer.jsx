@@ -6,7 +6,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    deleteTodo: (index) => {dispatch({type:'DELETE_TODO', index:index})}
+    deleteTodo: (index) => {dispatch({type:'DELETE_TODO', index:index})},
+    isTodoDone: (isTodoDone, index) => {dispatch({type:'IS_TODO_DONE', isTodoDone: isTodoDone, index: index})}
 })
 
 const TodoListContainer = connect(mapStateToProps, mapDispatchToProps)(TodoList);

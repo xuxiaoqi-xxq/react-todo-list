@@ -54,6 +54,10 @@
   height: 13px;
 }
 
+.todo-delete{
+  text-decoration: line-through;
+}
+
 .todo-form{
   display: flex;
   width: 200px;
