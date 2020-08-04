@@ -8,7 +8,7 @@ class TodoList extends React.Component{
         return (
             <div>
                 {this.props.todoList.map((item,index)=>{
-                    return <Todo text={item} key={index} />
+                    return <Todo text={item} key={index} index={index} deleteTodo={this.props.deleteTodo}/>
                 })}
             </div>
         )

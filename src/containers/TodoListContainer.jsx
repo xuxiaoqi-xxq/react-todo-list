@@ -5,6 +5,10 @@ const mapStateToProps = (state) => ({
     todoList: state.todoList
 });
 
-const TodoListContainer = connect(mapStateToProps)(TodoList);
+const mapDispatchToProps = (dispatch) => ({
+    deleteTodo: (index) => {dispatch({type:'DELETE_TODO', index:index})}
+})
+
+const TodoListContainer = connect(mapStateToProps, mapDispatchToProps)(TodoList);
 
 export default TodoListContainer;
