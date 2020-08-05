@@ -9,6 +9,8 @@ export const todoList = (state = [], action) => {
                 [...state].map((item, index) => { return index === action.index ? item.status = !item.status : item});
                 return state;
             }
+        case 'ADD_ALL':
+            return action.todoList
 
         default:
             return state

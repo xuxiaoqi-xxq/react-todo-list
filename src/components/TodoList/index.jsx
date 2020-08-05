@@ -1,7 +1,15 @@
 import Todo from '../Todo'
 import React from 'react'
+import {getTodo} from '../../api'
 
 class TodoList extends React.Component{
+
+    componentWillMount(){
+        getTodo().then((response) => {
+            let todoList = response.data;
+            this.props.addAll(todoList);
+        })
+    }
 
     render() {
         return (
