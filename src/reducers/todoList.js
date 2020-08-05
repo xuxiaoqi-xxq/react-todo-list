@@ -1,7 +1,7 @@
 export const todoList = (state = [], action) => {
     switch (action.type) {
         case 'ADD_TODO':
-            return [...state, { content: action.content, status: false }];
+            return [...state, action.todo];
         case 'DELETE_TODO':
             return [...state].filter((item, index) => (index !== action.index));
         case 'IS_TODO_DONE':
