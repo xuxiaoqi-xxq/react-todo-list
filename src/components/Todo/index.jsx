@@ -5,7 +5,7 @@ class Todo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            status: false
+            status: this.props.todo.status
         }
     }
 
@@ -17,11 +17,11 @@ class Todo extends React.Component {
     }
 
     done = (e) => {
-        let updateTodo = this.props.todo;
+        // let updateTodo = this.props.todo;
+        let updateTodo = Object.assign({},this.props.todo);
         updateTodo.status = !updateTodo.status;
         updateTodoApi(updateTodo).then((response) => {
-            this.props.isTodoDone(response.data.status, response.data.id);
-
+            this.props.isTodoDone(response.data.id);
             this.setState({
                 status: updateTodo.status
             })

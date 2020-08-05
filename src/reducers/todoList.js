@@ -6,7 +6,7 @@ export const todoList = (state = [], action) => {
             return [...state].filter((item) => (item.id !== action.id));
         case 'IS_TODO_DONE':
             {
-                [...state].map((item, index) => { return index === action.index ? item.status = !item.status : item});
+                [...state].map((item) => { return item.id === action.id ? item.status = !item.status : item});
                 return state;
             }
         case 'ADD_ALL':
