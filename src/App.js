@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import TodoListContainer from './containers/TodoListContainer';
 import TodoFormContainer from './containers/TodoFormContainer';
-import DoneTodoList from './components/DoneTodoList';
+import DoneTodoListContainer from './containers/DoneTodoListContainer';
 import { HashRouter, Link, Route } from 'react-router-dom';
 
 const Home = () => {
@@ -24,7 +24,7 @@ function App() {
                 <li><Link to="/done" >Done Todo List</Link></li>
                 <li><Link to="/" >Add Todo List</Link></li>
               </ul>
-              <Route exact path="/done" component={DoneTodoList}></Route>
+              <Route exact path="/done" component={DoneTodoListContainer}></Route>
               <Route exact path="/" component={Home}></Route>
             </div>
         </HashRouter>
