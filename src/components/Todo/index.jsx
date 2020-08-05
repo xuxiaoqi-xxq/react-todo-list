@@ -1,5 +1,5 @@
 import React from 'react'
-import { updateTodo as updateTodoApi} from '../../api'
+import { updateTodo as updateTodoApi, deleteTodo} from '../../api'
 class Todo extends React.Component {
 
     constructor(props) {
@@ -10,7 +10,10 @@ class Todo extends React.Component {
     }
 
     deleteTodo = () => {
-        this.props.deleteTodo(this.props.index);
+        deleteTodo(this.props.todo.id)
+        .then(() => {
+            this.props.deleteTodo(this.props.todo.id);
+        });
     }
 
     done = (e) => {

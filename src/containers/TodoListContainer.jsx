@@ -6,7 +6,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    deleteTodo: (index) => {dispatch({type:'DELETE_TODO', index:index})},
+    deleteTodo: (id) => {dispatch({type:'DELETE_TODO', id:id})},
     isTodoDone: (status, index) => {dispatch({type:'IS_TODO_DONE', status: status, index: index})},
     addAll: (todoList) => {dispatch({type:"ADD_ALL",todoList: todoList})}
 })

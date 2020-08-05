@@ -3,7 +3,7 @@ export const todoList = (state = [], action) => {
         case 'ADD_TODO':
             return [...state, action.todo];
         case 'DELETE_TODO':
-            return [...state].filter((item, index) => (index !== action.index));
+            return [...state].filter((item) => (item.id !== action.id));
         case 'IS_TODO_DONE':
             {
                 [...state].map((item, index) => { return index === action.index ? item.status = !item.status : item});
