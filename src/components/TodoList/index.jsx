@@ -1,6 +1,7 @@
 import Todo from '../Todo'
 import React from 'react'
-import {getTodo} from '../../api'
+import {getTodo} from '../../api';
+import { Row, Col } from 'antd';
 
 class TodoList extends React.Component{
 
@@ -13,11 +14,11 @@ class TodoList extends React.Component{
 
     render() {
         return (
-            <div>
+            <Row gutter={10}>
                 {this.props.todoList.map((item,index)=>{
-                    return <Todo key={index} todo={item} deleteTodo={this.props.deleteTodo} isTodoDone={this.props.isTodoDone}/>
+                    return <Col span={4}><Todo key={index} todo={item} deleteTodo={this.props.deleteTodo} isTodoDone={this.props.isTodoDone}/></Col>
                 })}
-            </div>
+            </Row>
         )
     }
 
