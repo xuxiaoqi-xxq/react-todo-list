@@ -5,7 +5,7 @@ class Todo extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            isTodoDone: false
+            status: false
         }
     }
 
@@ -14,21 +14,21 @@ class Todo extends React.Component{
     }
 
     done = (e)=>{
-        let isTodoDone = !this.state.isTodoDone;
+        let status = !this.state.status;
         this.setState({
-            isTodoDone: isTodoDone
+            status: status
         })
-        this.props.isTodoDone(this.state.isTodoDone, this.props.index);
+        this.props.isTodoDone(this.state.status, this.props.index);
     }
 
     render(){
-        if(this.state.isTodoDone){
+        if(this.state.status){
             return (
-                <div className="todo-border"><span className="todo-delete" onClick={this.done}>{this.props.todo.text}</span><img onClick={this.deleteTodo} src='/delete.png' alt="delete"/></div>
+                <div className="todo-border"><span className="todo-delete" onClick={this.done}>{this.props.todo.content}</span><img onClick={this.deleteTodo} src='/delete.png' alt="delete"/></div>
             )
         } else {
             return (
-                <div className="todo-border"><span onClick={this.done}>{this.props.todo.text}</span><img onClick={this.deleteTodo} src='/delete.png' alt="delete"/></div>
+                <div className="todo-border"><span onClick={this.done}>{this.props.todo.content}</span><img onClick={this.deleteTodo} src='/delete.png' alt="delete"/></div>
             )
         }
     }

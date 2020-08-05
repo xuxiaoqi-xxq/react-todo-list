@@ -4,17 +4,17 @@ class TodoForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			text: ''
+			content: ''
 		};
 	}
 
 	handlerChange = (e) => {
-		this.setState({ text: e.target.value });
+		this.setState({ content: e.target.value });
 	};
 
 	submitForm = (e) => {
 		e.preventDefault();
-		this.props.addTodo(this.state.text);
+		this.props.addTodo(this.state.content);
 	};
 
 	render() {
@@ -24,7 +24,7 @@ class TodoForm extends React.Component {
 					<div className="todo-form">
 						<input
 							placeholder="Input a new Todo here..."
-							value={this.state.text}
+							value={this.state.content}
 							onChange={this.handlerChange}
 						/>
 						<button>add</button>
